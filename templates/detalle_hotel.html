@@ -1,0 +1,53 @@
+<!-- detalle_hotel.html -->
+{% extends "layouts/main.html" %}
+{% load static %}
+
+{% block content %}
+    <div class="container">
+        <div class="row bg-light">
+            <div class="card-header-h subtitulo"><h1>{{ hotel.nombre }}</h1></div>
+            <div class="col-12">
+                <div class="card-body-h">
+                    <p class="subtitulo"><strong>Descripcion:</strong> {{ hotel.descripcion }}</p>
+                    <p class="subtitulo"><strong>Habitaciones:</strong> {{ hotel.habitacion }}</p>
+                    <p class="subtitulo"><strong>Ubicacion:</strong> {{ hotel.ubicacion }}</p>
+                    <p class="subtitulo"><strong>Precio por noche:</strong> USD {{ hotel.precio }}</p>
+                </div>
+            </div>
+        
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-md-6 mb-1">
+                        <img src="{% static 'images/holanda.jpg' %}" alt="" class="img-fluid img-chica" style="border-radius: 20px;">
+                    </div>
+                    <div class="col-md-6 mb-1">
+                        <img src="{% static 'images/piramides.jpg' %}" alt="" class="img-fluid img-chica" style="border-radius: 20px;">
+                    </div>
+                    <div class="col-md-6 mb-1">
+                        <img src="{% static 'images/mexico.jpg' %}" alt="" class="img-fluid img-chica" style="border-radius: 20px;">
+                    </div>
+                    <div class="col-md-6 mb-1">
+                        <img src="{% static 'images/estambul.jpg' %}" alt="" class="img-fluid img-chica" style="border-radius: 20px;">
+                    </div>
+                </div>
+            </div> 
+
+            <div class="col-12">
+                <a href="/hoteles" class="btn button my-4"> Volver a hoteles</a>
+                <a href="/hacerReserva" class="btn button my-4"> Hacer reserva</a>
+            </div>
+
+        </div>
+        
+        {% if request.user.is_authenticated %}
+        <form action="" method="POST">
+            <div class="form-group text-form my-3">
+                <label for="">Comentario</label>
+                <textarea class="form-control" name="descripcion" id=""> </textarea>
+            </div>
+            <button class="btn button mx-5" type="submit" >Enviar comentario</button>
+        </form>
+        {%endif%}
+    </div>
+    
+{% endblock %}

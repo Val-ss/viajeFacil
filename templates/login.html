@@ -1,0 +1,36 @@
+{% extends "layouts/main.html" %}
+{% load static %}
+
+{% block img %}
+<!-- Imagen de portada -->
+<section class="hero">
+    <div class="container-img">
+        <div class="row align-items-center">
+            <div class="col-12">
+                <img src="{% static 'images/playa.jpg' %}" class="img-fluid" alt="Hero Image">
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block content %}
+<h1>Iniciar sesión</h1>
+
+<form action="" class="px-5 background "  method="POST">
+    {% csrf_token%}
+    <div class="form-group text-form my-3">
+        <label for="">Usuario</label>
+        <input type="text" class="form-control" name="username" placeholder="Nombre de usuario">
+    </div>
+
+    <div class="form-group text-form my-3">
+        <label for="">Contraseña</label>
+        <input type="password" class="form-control" name="password" placeholder="Contraseña">
+    </div>
+
+    <a href='/registro' class="btn button my-4"> Aún no tengo cuenta </a>
+    <button class="btn button my-4" type="submit"> Iniciar sesión </button>
+
+</form>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "layouts/main.html" %}
+{% load static %}
+
+
+<title>{% block title %}Hoteles{% endblock %}</title>
+
+<!--Modelo de hoteles-->
+{% block content %}
+   
+    <section>
+        <h1 class="subtitulo mb-4"> Hoteles Disponibles</h1>
+        <div class="row">
+            {% for h in hotel %}
+                <div class="col-md-6 mb-3">
+                    <div class="card"> 
+                        <img src="/static/images/playa.jpg" class="card-img-top " alt="imagen">
+                        <div class="card-body">
+                            <h5 class="card-title py-2">{{ h.nombre }}</h5>
+                            <h6  class="card-text mb-2">{{ h.ubicacion }}</h6>
+                            <h6  class="card-text mb-2">USD {{ h.precio }}</h6>
+                            <a href="/detalle_hotel/{{h.id}}" class="btn button my-4">Ver detalles</a>
+                            {% if request.user.is_staff %}
+                            <a href='/nuevo_hotel/{{h.id}}' class="btn button my-4"> Editar</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+         </div>
+    </section>
+    
+
+{% endblock %}

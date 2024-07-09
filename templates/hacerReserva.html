@@ -1,0 +1,73 @@
+<!-- reserva_hotel.html -->
+
+{% extends "layouts/main.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container bg-light">
+    <h1 class="my-4 subtitulo">Reserva de Hotel</h1>
+    <form method="post" class="needs-validation background px-4" novalidate>
+        {% csrf_token %}
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label for="id_nombre_cliente">Nombre:</label>
+                <input type="text" class="form-control" id="id_nombre_cliente" name="nombre_cliente" placeholder="Ingresa tu nombre" required>
+                <div class="invalid-feedback">
+                    Por favor ingresa tu nombre.
+                </div>
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label for="id_fecha_entrada">Fecha de entrada:</label>
+                <input type="date" class="form-control" id="id_fecha_entrada" name="fecha_entrada" required>
+                <div class="invalid-feedback">
+                    Por favor ingresa la fecha de entrada.
+                </div>
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label for="id_fecha_salida">Fecha de salida:</label>
+                <input type="date" class="form-control" id="id_fecha_salida" name="fecha_salida" required>
+                <div class="invalid-feedback">
+                    Por favor ingresa la fecha de salida.
+                </div>
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label for="id_numero_habitaciones">Número de habitaciones:</label>
+                <input type="number" class="form-control" id="id_numero_habitaciones" name="numero_habitaciones" placeholder="Número de habitaciones" required>
+                <div class="invalid-feedback">
+                    Por favor ingresa el número de habitaciones.
+                </div>
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label for="id_numero_huespedes">Número de huéspedes:</label>
+                <input type="number" class="form-control" id="id_numero_huespedes" name="numero_huespedes" placeholder="Número de huéspedes" required>
+                <div class="invalid-feedback">
+                    Por favor ingresa el número de huéspedes.
+                </div>
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label for="id_email_cliente">Email:</label>
+                <input type="email" class="form-control" id="id_email_cliente" name="email_cliente" placeholder="Email" required>
+                <div class="invalid-feedback">
+                    Por favor ingresa un email válido.
+                </div>
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label for="id_telefono_cliente">Teléfono:</label>
+                <input type="tel" class="form-control" id="id_telefono_cliente" name="telefono_cliente" placeholder="Teléfono" required>
+                <div class="invalid-feedback">
+                    Por favor ingresa un número de teléfono válido.
+                </div>
+            </div>
+        </div>
+
+        <hr class="mb-4">
+        <button class="btn button my-4 btn-lg" type="submit">Enviar</button>
+    </form>
+</div>
+{% endblock %}

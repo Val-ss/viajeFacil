@@ -1,0 +1,45 @@
+{% extends "layouts/main.html" %}
+
+
+/* el atributo name tiene que se igual que el de la bdb */
+
+{% block content %}
+        <form action="" class="px-5 background "  method="POST">
+            {% csrf_token %}
+            <h1 class="titulo-form">Nuevo Destino</h1>
+            {% if destino is not None %}
+                <input type="hidden" value="{{destino.id}}" name="id">
+            {% endif %}
+            
+            <div class="form-group text-form my-3">
+                <label for="">Titulo</label>
+                <input type="text" class="form-control" name="titulo" placeholder="ingresa el titulo"
+                {% if destino is not None %}
+                    value="{{destino.titulo}}"
+                {% endif %}
+                >
+            </div>
+            
+            <div class="form-group text-form my-3">
+                <label for="">Ubicacion</label>
+                <textarea class="form-control" name="ubicacion" id="">{% if destino is not None %}{{destino.ubicacion}}{% endif %}
+                </textarea>
+            </div>
+
+            <div class="form-group text-form my-3">
+                <label for="">Descripcion</label>
+                <textarea class="form-control" name="descripcion" id="">{% if destino is not None %}{{destino.descripcion}}{% endif %}
+                </textarea>
+            </div>
+
+            <div class="form-group text-form my-3">
+                <label for="">Precio</label>
+                <input type="text" class="form-control" name="precio" placeholder="precio"
+                {% if destino is not None %}
+                    value="{{destino.precio}}"
+                {% endif %}>
+            </div>
+            <button class="btn button my-4" type="submit"> Enviar </button>
+        </form>
+  
+{% endblock %}

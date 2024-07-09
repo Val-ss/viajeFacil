@@ -1,0 +1,114 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilos navegador */
+.navegador {
+    background-color: #48C2C2;
+}
+
+nav .texto-nav {
+    color:  #b9641f;
+}
+
+.color-bt-toggle{
+    background-color:#48C2C2 ;
+}
+
+
+/* Estilos imagen hero */
+.hero {
+    position: relative;
+    overflow: hidden;
+    width: 100vw;  
+    height: auto; 
+}
+
+.hero img {
+    width: 120vw; 
+    height: 30vw; 
+    object-fit: cover; 
+    object-position: center; 
+}
+
+
+
+/*Es tilos imagen destino */
+.img_destino{
+    width: 100%;
+    height: auto;
+}
+
+.container-fluid {
+    height: auto;   
+}
+
+.col-md-6 {
+    padding: 2px; 
+}
+
+.subtitulo{
+    color: #289898;
+}
+.card-body {
+    padding: 2px;
+   
+}
+
+.row {
+    margin: 0; 
+    padding: 0; 
+}
+
+.btn.button{
+    color:  #fff8dc;
+    background-color: #b9641f;
+}
+
+/* Estilos footer */ 
+.foot.card{
+    background-color: #48C2C2;
+    color:  #fff8dc;
+}
+
+.foot .col-md-4 {
+    text-align: center;
+}
+
+
+/* Estilos formulario */
+
+.background{
+    padding: 6px;
+    background-color: #48C2C2;
+    border-radius: 14px;
+}
+
+
+.titulo-form{
+    color: #b9641f;
+}
+
+.text-form{
+    color: #b9641f;
+}
+
+/* Estilos para hotel */
+.img_hotel{
+    width: 100%;
+    height: auto;
+}
+
+.color-text-paquete{
+    color:  #2b8ce6;
+}
+
+.bg-paquete{
+    background-color: rgb(43, 140, 230,0.2);
+}
+
+
+.nombre-paque{
+    color: #b9641f;
+}

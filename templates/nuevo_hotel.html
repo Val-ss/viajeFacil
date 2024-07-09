@@ -1,0 +1,57 @@
+{% extends "layouts/main.html" %}
+
+
+/* el atributo name tiene que se igual que el de la bdb */
+
+{% block content %}
+        <form action="" class="px-5 background "  method="POST">
+            {% csrf_token%}
+            <h1 class="titulo-form">Nuevo Hotel</h1>
+            {% if hotel is not None %}
+                <input type="hidden" value="{{hotel.id}}" name="id">
+            {% endif %}
+            
+            <div class="form-group text-form my-3">
+                <label for="">Nombre Hotel</label>
+                <input type="text" class="form-control" name="nombre" placeholder="ingresa nombre hotel"
+                {% if hotel is not None %}
+                    value="{{hotel.nombre}}"
+                {% endif %}
+                >
+            </div>
+
+            <div class="form-group text-form my-3">
+                <label for="">Descripcion</label>
+                <textarea class="form-control" name="descripcion" id="">{% if hotel is not None %}{{hotel.descripcion}}{% endif %}</textarea>
+            </div>
+            
+            <div class="form-group text-form my-3">
+                <label for="">Habitaciones</label>
+                <input type="text" class="form-control" name="habitacion" placeholder="ingresa numero habitaciones"
+                {% if hotel is not None %}
+                    value="{{hotel.habitacion}}"
+                {% endif %}>
+            </div>
+
+            <div class="form-group text-form my-3">
+                <label for="">Ubicacion</label>
+                <input type="text" class="form-control" name="ubicacion" placeholder=""
+                {% if hotel is not None %}
+                    value="{{hotel.ubicacion}}"
+                {% endif %}>
+            </div>
+
+           
+
+            <div class="form-group text-form my-3">
+                <label for="">Precio</label>
+                <input type="text" class="form-control" name="precio" placeholder="precio"
+                {% if hotel is not None %}
+                    value="{{hotel.precio}}"
+                {% endif %}>
+            </div>
+            <button class="btn button my-4" type="submit"> Enviar </button>
+            <a href="/hoteles" class="btn button my-4"> Volver a hoteles</a>
+        </form>
+  
+{% endblock %}

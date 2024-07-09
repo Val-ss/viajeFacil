@@ -1,0 +1,33 @@
+{% extends "layouts/main.html" %}
+
+
+/* el atributo name tiene que se igual que el de la bdb */
+
+{% block content %}
+        <form action="" class="px-5 background "  method="POST">
+            {% csrf_token%}
+            <h1 class="titulo-form">Nuevo Seguridad</h1>
+            {% if seguridad is not None %}
+                <input type="hidden" value="{{seguridad.id}}" name="id">
+            {% endif %}
+            
+            <div class="form-group text-form my-3">
+                <label for="">Titulo</label>
+                <input type="text" class="form-control" name="titulo" placeholder="ingresa el titulo"
+                {% if seguridad is not None %}
+                    value="{{seguridad.titulo}}"
+                {% endif %}
+                >
+            </div>
+            
+
+            <div class="form-group text-form my-3">
+                <label for="">Descripcion</label>
+                <textarea class="form-control" name="descripcion" id="">{% if seguridad is not None %}{{seguridad.descripcion}}{% endif %}
+                </textarea>
+            </div>
+
+            <button class="btn button my-4" type="submit"> Enviar </button>
+        </form>
+  
+{% endblock %}

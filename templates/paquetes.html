@@ -1,0 +1,24 @@
+{% extends "layouts/main.html" %}
+{% load static %}
+
+{% block content %}
+    <h3 class="subtitulo py-3">Paquetes que te pueden interesar</h3>
+    <hr>
+    <div class="container py-3">
+        <div class="row">
+            {% for p in paquetes %}
+            <div class="col-sm-6 col-lg-4 mt-3">
+                <div class="card" style="border-radius: 10%;">
+                    <div class="card-body bg-paquete" style="border-radius: 10%;">
+                        <h3 class="nombre-paque p-2">{{ p.nombre }}</h3>
+                        <p class="color-text-paquete px-2">{{ p.descripcion }}</p>
+                        <p class="color-text-paquete px-2">{{ p.mascota }}</p>
+                        <p class="color-text-paquete px-2">{{ p.beneficio }}</p>
+                        <h4 class="nombre-paque p-2">USD {{ p.precio }}</h4>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

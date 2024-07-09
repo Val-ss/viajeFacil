@@ -1,0 +1,96 @@
+{% extends "layouts/main.html" %}
+{% load static %}
+
+
+{% block content %}
+
+<H1>Morbi porttitor mauris ac nibh dictum</H1>
+
+<p>Curabitur sit amet est eu nulla euismod maximus vitae quis enim. Integer congue arcu vitae ipsum
+    ultricies, ac ultricies ante facilisis. Aenean faucibus, nisl vel iaculis laoreet, turpis eros 
+    pharetra nisl, at molestie orci felis eget nunc. Etiam eleifend mi a eros faucibus pellentesque.
+    Maecenas feugiat, odio ac efficitur dignissim, sem dui tincidunt libero, eu facilisis purus mauris
+    et lectus. Donec dignissim urna vel eros dapibus aliquam. Donec arcu leo, malesuada quis sem vel, 
+    sagittis scelerisque velit. Etiam maximus justo et purus vestibulum, ut congue metus facilisis</p>
+
+    <div class="container mt-4">
+        <div class="row">
+            {% for s in seguridad %}
+            <div class="col-lg-4 mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h6>{{ s.titulo }}</h6>
+                        <p>{{ s.descripcion }}</p>
+                        <button class="btn button ">Botón</button>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="container mt-4">
+        <h2 class="p-2 subtitulo">Nam tincidunt enim ac varius aliquet.</h2>
+        <div class="row">
+            <div class="col-lg-6 pt-5">
+                <img src="/static/images/petra.jpg" alt="" class="img-fluid" style="border-radius: 10%;">
+            </div>
+            <div class="col-lg-6">
+                <div class="row">
+                    {% for s in seguridad %}
+                    <div class="col-lg-12 mb-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <h6>{{ s.titulo }}</h6>
+                                <p>{{ s.descripcion }}</p>
+                                <button class="btn button ">Botón</button>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-3">
+        <h2 class="p-2 subtitulo">Nam tincidunt enim ac varius aliquet.</h2>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="row">
+                    {% for s in seguridad %}
+                    <div class="col-lg-12 mb-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <h6>{{ s.titulo }}</h6>
+                                <p>{{ s.descripcion }}</p>
+                                <button class="btn button ">Botón</button>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="col-lg-6 pt-5">
+                <img src="/static/images/piramides.jpg" alt="" class="img-fluid" style="border-radius: 10%;">
+            </div>
+        </div>
+    </div>
+    
+    <div class="container mt-4 pt-4">
+        <div class="row">
+            {% for s in seguridad %}
+            <div class="col-lg-4 mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h6>{{ s.titulo }}</h6>
+                        <p>{{ s.descripcion }}</p>
+                        <button class="btn button ">Botón</button>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    
+{% endblock %}

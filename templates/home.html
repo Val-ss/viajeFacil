@@ -1,0 +1,193 @@
+{% extends "layouts/main.html" %}
+{% load static %}
+
+{% block img %}
+<!-- Imagen de portada -->
+<section class="hero">
+    <div class="container-img">
+        <div class="row align-items-center">
+            <div class="col-12">
+                <img src="{% static 'images/playa.jpg' %}" class="img-fluid" alt="Hero Image">
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block content %}
+<!-- Seccion reserva de paquetes -->
+<div class="container background px-4">
+    <h1 class="my-4 titulo-form">Reservá tu paquete</h1>
+    <form method="post" class="needs-validation" novalidate>
+        {% csrf_token %}
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label for="id_nombre_cliente">Nombre:</label>
+                <input type="text" class="form-control" id="id_nombre_cliente" name="nombre_cliente" placeholder="Ingresa tu nombre" required>
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label for="id_fecha_entrada">Fecha de entrada:</label>
+                <input type="date" class="form-control" id="id_fecha_entrada" name="fecha_entrada" required>
+                <div class="invalid-feedback">
+                    Por favor ingresa la fecha de entrada.
+                </div>
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label for="id_fecha_salida">Fecha de salida:</label>
+                <input type="date" class="form-control" id="id_fecha_salida" name="fecha_salida" required>
+                <div class="invalid-feedback">
+                    Por favor ingresa la fecha de salida.
+                </div>
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label for="id_numero_habitaciones">Número de habitaciones:</label>
+                <input type="number" class="form-control" id="id_numero_habitaciones" name="numero_habitaciones" placeholder="Número de habitaciones" required>
+                <div class="invalid-feedback">
+                    Por favor ingresa el número de habitaciones.
+                </div>
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label for="id_numero_huespedes">Número de huéspedes:</label>
+                <input type="number" class="form-control" id="id_numero_huespedes" name="numero_huespedes" placeholder="Número de huéspedes" required>
+                <div class="invalid-feedback">
+                    Por favor ingresa el número de huéspedes.
+                </div>
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label for="id_email_cliente">Email:</label>
+                <input type="email" class="form-control" id="id_email_cliente" name="email_cliente" placeholder="Email" required>
+                <div class="invalid-feedback">
+                    Por favor ingresa un email válido.
+                </div>
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label for="id_telefono_cliente">Teléfono:</label>
+                <input type="tel" class="form-control" id="id_telefono_cliente" name="telefono_cliente" placeholder="Teléfono" required>
+                <div class="invalid-feedback">
+                    Por favor ingresa un número de teléfono válido.
+                </div>
+            </div>
+
+            
+            <div class="col-md-6 mb-3">
+                <label for="id_paquete">Selecciona un paquete:</label>
+                <select class="form-select" id="id_paquete" name="paquete">
+                    <option selected disabled>Selecciona un paquete...</option>
+                    {% for paquete in paquetes %}
+                        <option value="{{ paquete.id }}">{{ paquete.nombre }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+
+        <hr class="mb-4">
+        <button class="btn button my-4 btn-lg" type="submit">Reservar</button>
+    </form>
+</div>
+
+
+<!-- Seccion destinos -->
+<section class="container m-5">
+    <div class="row">
+        <div class="col-md-8">
+            <h1 class="subtitulo">Descubre tu próxima aventura con nosotros</h1>
+            <p>Explora destinos exóticos, encuentra ofertas irresistibles y planifica experiencias únicas con solo un clic. ¡Empieza tu viaje hoy mismo y descubre un mundo de posibilidades!</p>
+            <a href="/destinos" class="btn button my-2">Ver Destinos</a>
+        </div>
+    </div>
+</section>
+
+<div class="container">
+    <div class="row">
+        <div class="col div-centrado">
+            <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="{% static 'images/paris.jpg' %}" class="d-block w-100" alt="..." style="border-radius: 10px;">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{% static 'images/petra2.jpg' %}" class="d-block w-100" alt="..." style="border-radius: 10px;">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{% static 'images/estambul.jpg' %}" class="d-block w-100" alt="..." style="border-radius: 10px;">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{% static 'images/coliseo.jpg' %}" class="d-block w-100" alt="..." style="border-radius: 10px;">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{% static 'images/gran_cañon.jpg' %}" class="d-block w-100" alt="..." style="border-radius: 10px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Sección de Ofertas Destacadas -->
+<section class="container mt-5">
+    <h3 class="subtitulo mb-4">Ofertas Especiales</h3>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <img src="{% static 'images/holanda.jpg' %}" class="card-img-top" alt="Oferta 1">
+                <div class="card-body">
+                    <h5 class="card-title">Roterdam, Holanda</h5>
+                    <p class="card-text">Descuento de 3 noches con desayuno incluido</p>
+                    <a href="#" class="btn button">Ver Detalles</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <img src="{% static 'images/piramides.jpg' %}" class="card-img-top" alt="Oferta 2">
+                <div class="card-body">
+                    <h5 class="card-title">Giza, Egipto</h5>
+                    <p class="card-text">Paquetes completos con vuelo y hotel.</p>
+                    <a href="#" class="btn button">Ver Detalles</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <img src="{% static 'images/mexico.jpg' %}" class="card-img-top" alt="Oferta 3">
+                <div class="card-body">
+                    <h5 class="card-title">Chichén Itzá, Mexico</h5>
+                    <p class="card-text">Conocé Chichén Itzá con descuento de hasta el 30%.</p>
+                    <a href="#" class="btn button">Ver Detalles</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonios de Clientes -->
+<section class="container mt-5">
+    <h3 class="subtitulo mb-4">Testimonios de Clientes</h3>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <p class="card-text">"Excelente servicio y atención. Recomiendo ampliamente reservar con ellos."</p>
+                    <p class="card-text"><strong>- Cliente Satisfecho</strong></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <p class="card-text">"Una experiencia increíble. Planifiqué mi viaje de manera fácil y rápida."</p>
+                    <p class="card-text"><strong>- Otro Cliente Feliz</strong></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

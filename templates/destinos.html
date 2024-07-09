@@ -1,0 +1,28 @@
+{% extends "layouts/main.html" %}
+{% load static %}
+<h1>destinos</h1>
+
+{% block content %}
+        <h2 class="my-4 subtitulo">Los destinos mas buscados por nuestros turistas</h2>
+        <div class="container">
+            <div class="row">
+                {% for d in destino %}
+                    <div class="col-12 col-md-6 mb-3">
+                        <div class="card">
+                            <img src="{% static 'images/mexico.jpg' %}" class="card-img-top img_destino" alt="">
+                            <div class="card-body"> 
+                                <h5 class="card-title py-2">{{ d.titulo }}</h5>
+                                <h6 class="card-text mb-2">{{ d.ubicacion }}</h6>
+                                <h6 class="card-text mb-2">{{ d.descripcion }}</h6>
+                                <p>USD {{ d.precio }}</p>
+                                <a href='#' class="btn button my-4"> Ver más </a>
+                                {% if request.user.is_staff %}
+                                <a href='/nuevoDestino/{{d.id}}' class="btn button my-4"> Editar</a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+{% endblock %}

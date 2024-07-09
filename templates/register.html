@@ -1,0 +1,54 @@
+{% extends "layouts/main.html" %}
+{% load static %}
+
+{% block img %}
+<!-- Imagen de portada -->
+<section class="hero">
+    <div class="container-img">
+        <div class="row align-items-center">
+            <div class="col-12">
+                <img src="{% static 'images/playa.jpg' %}" class="img-fluid" alt="Hero Image">
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block content %}
+<h1>Registrarme</h1>
+
+<form action="" class="px-5 background "  method="POST">
+    {% csrf_token%}
+    <div class="form-group text-form my-3">
+        <label for="">Usuario</label>
+        <input type="text" class="form-control" name="username" placeholder="Nombre de usuario">
+    </div>
+
+    <div class="form-group text-form my-3">
+        <label for="">Nombre</label>
+        <input type="text" class="form-control" name="name" placeholder="Nombre">
+    </div>
+
+    <div class="form-group text-form my-3">
+        <label for="">Apellido</label>
+        <input type="text" class="form-control" name="last_name" placeholder="Apellido">
+    </div>
+
+    <div class="form-group text-form my-3">
+        <label for="">Email</label>
+        <input type="email" class="form-control" name="email" placeholder="Ingrese email">
+    </div>
+
+    <div class="form-group text-form my-3">
+        <label for="">Contraseña</label>
+        <input type="password" class="form-control" name="password" placeholder="Contraseña">
+    </div>
+
+    <div class="form-group text-form my-3">
+        <label for="">Confrirmar Contraseña</label>
+        <input type="password" class="form-control" name="confirm_password" placeholder="Confirmar contraseña">
+    </div>
+    <button class="btn button my-4" type="submit"> Registro </button>
+
+</form>
+{% endblock %}
